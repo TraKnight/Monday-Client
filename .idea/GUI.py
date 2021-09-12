@@ -52,7 +52,7 @@ class Window():
         profile_menu=Menu(menubar,tearoff=False)
 
 
-        #add menu item
+        #add menu item#
         menubar.add_cascade(
             label="Profile",
             menu=profile_menu,
