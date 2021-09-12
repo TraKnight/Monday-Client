@@ -45,7 +45,6 @@ class Window():
         self.master.mainloop()
         #Frame widgets format config /end
 
-
         #create menubar
         menubar = Menu(self.master)
         self.master.config(menu=menubar)
