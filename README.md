@@ -5,6 +5,7 @@
 ## Requirments
 - Python installed on client version 3.9 or higher
 - Monday.com API ( Accessible through Monday.com admin account)
+- Python dependencies request tkinter
 
 ### The Basics
 - Monday.com live status updates
