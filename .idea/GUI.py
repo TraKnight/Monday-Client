@@ -42,7 +42,7 @@ class Window():
         enterButton.pack(pady=12)
         setVariables.pack(pady=12)
         version.pack(pady=10,side=BOTTOM)
-        self.master.mainloop()
+
         #Frame widgets format config /end
 
         #create menubar
@@ -72,6 +72,7 @@ class Window():
         file_menu.add_command(label='Change Board')
         file_menu.add_command(label='Refresh')
         file_menu.add_command(label='Close')
+        self.master.mainloop()
 
 
 
