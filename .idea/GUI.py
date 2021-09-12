@@ -3,6 +3,8 @@ from tkinter import *
 
 
 class Window():
+
+
     def __init__(self):
         self.master=self
         self.master.title('Monday Update Client')
@@ -38,7 +40,7 @@ class Window():
         file_menu.add_command(label='Create New Board')
         file_menu.add_command(label='Change Board')
         file_menu.add_command(label='Refresh')
-        file_menu.add_command(label='Exit')
+        file_menu.add_command(label='Close')
 
         #Text entry widgets UI config Main
         self.orderUI= Entry(self.master, width=25, borderwidth=2, validate="key")
@@ -58,6 +60,7 @@ class Window():
         setVariables.pack(pady=12)
         version.pack(pady=10,side=BOTTOM)
         self.master.mainloop()
+
 
 
 
