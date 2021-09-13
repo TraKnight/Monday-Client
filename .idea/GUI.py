@@ -31,7 +31,7 @@ class Window(Frame):
         boardName = Label(master, text="Connected to: "+default+"",fg='#00b200',font='android 10 bold')
         titleOrder = Label(master, text="ITEM:",fg='#0f5b9e',font='android 20 bold')
         titleColumn = Label(master, text="COLUMN:",fg='#0f5b9e',font='android 20 bold')
-        titleStatus = Label(master, text="STATUS",fg='#0f5b9e',font='android 20 bold')
+        titleStatus = Label(master, text="STATUS:",fg='#0f5b9e',font='android 20 bold')
         enterButton= Button(master, text="Update")
         setVariables= Button(master,text="Change Boards")
         version= Label(master, text="Version 2",fg='#0f5b9e',font='android 8')
