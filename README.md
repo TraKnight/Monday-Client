@@ -8,8 +8,13 @@
 - Python dependencies request tkinter
 
 ### The Basics
-- Monday.com live status updates
-- Board item creation 
+This client application is used to work in tandem with the Monday.com API. The application will be used
+to support project managment transparency with status updates for Monday.com board items. The features include
+
+- Monday.com project status updates for work transparency 
+- Board item creation and assignment to project teams or individuals 
+
+![Client App Snapshot](https://github.com/TraKnight/Monday-Client/blob/Main/.idea/img/Monday%20Client%20Snap.png?raw=false)
 
 ## License & Copyright 
 © Deontra D Knight
