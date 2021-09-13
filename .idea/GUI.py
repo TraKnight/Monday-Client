@@ -29,7 +29,7 @@ class Window(Frame):
         text = Label(master,height=3, width=70, text="Monday Update Client", font='android 15 bold',wraplength=500, justify="center")
         title = Label(master, text="Status Update Station",fg='#0f5b9e',font='android 20 bold')
         boardName = Label(master, text="Connected to: "+default+"",fg='#00b200',font='android 10 bold')
-        titleOrder = Label(master, text="ORDER NUMBER:",fg='#0f5b9e',font='android 20 bold')
+        titleOrder = Label(master, text="ITEM:",fg='#0f5b9e',font='android 20 bold')
         titleColumn = Label(master, text="COLUMN:",fg='#0f5b9e',font='android 20 bold')
         titleStatus = Label(master, text="STATUS",fg='#0f5b9e',font='android 20 bold')
         enterButton= Button(master, text="Update")
