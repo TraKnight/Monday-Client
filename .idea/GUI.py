@@ -2,37 +2,55 @@ from tkinter import *
 
 
 #GUI Object
-class Window():
+class Window(Frame):
 
-    def __init__(self):
-
+    def __init__(self,master):
         #Window config
-        self.master=self
-        self.master.title('Monday Update Client')
-        self.master.geometry('500x600')
-        self.master.iconbitmap('img/OIP .ico')
+        self.master=master
+        master.title('Monday Update Client')
+        master.geometry('500x600')
+        master.iconbitmap('img/cloud.ico')
+
+        #create menubar
+        menubar = Menu(self.master)
+        master.config(menu=menubar)
+        file_menu=Menu(menubar,tearoff=False)
+        profile_menu=Menu(menubar,tearoff=False)
+
+        #add menu item
+        menubar.add_cascade(
+            label="Menu",
+            menu=file_menu,
+            underline=0
+        )
 
         #Frame widgets config /start
         default=""
-        self.text = Label(self.master,height=3, width=70, text="Monday Update Client", font='android 15 bold',wraplength=500, justify="center")
-        title = Label(self.master, text="Status Update Station",fg='#0f5b9e',font='android 20 bold')
-        self.boardName = Label(self.master, text="Connected to: "+default+"",fg='#00b200',font='android 10 bold')
-        titleOrder = Label(self.master, text="ORDER NUMBER:",fg='#0f5b9e',font='android 20 bold')
-        titleColumn = Label(self.master, text="COLUMN:",fg='#0f5b9e',font='android 20 bold')
-        titleStatus = Label(self.master, text="STATUS",fg='#0f5b9e',font='android 20 bold')
-        enterButton= Button(self.master, text="Update")
-        setVariables= Button(self.master,text="Change Boards")
-        version= Label(self.master, text="Version 2",fg='#0f5b9e',font='android 8')
+        text = Label(master,height=3, width=70, text="Monday Update Client", font='android 15 bold',wraplength=500, justify="center")
+        title = Label(master, text="Status Update Station",fg='#0f5b9e',font='android 20 bold')
+        boardName = Label(master, text="Connected to: "+default+"",fg='#00b200',font='android 10 bold')
+        titleOrder = Label(master, text="ORDER NUMBER:",fg='#0f5b9e',font='android 20 bold')
+        titleColumn = Label(master, text="COLUMN:",fg='#0f5b9e',font='android 20 bold')
+        titleStatus = Label(master, text="STATUS",fg='#0f5b9e',font='android 20 bold')
+        enterButton= Button(master, text="Update")
+        setVariables= Button(master,text="Change Boards")
+        version= Label(master, text="Version 2",fg='#0f5b9e',font='android 8')
+        #sub menu items
+        file_menu.add_command(label='Monday.com')
+        file_menu.add_command(label='Create New Board')
+        file_menu.add_command(label='Change Board',command=self.submenu)
+        file_menu.add_command(label='Refresh')
+        file_menu.add_command(label='Close')
 
 
         #Text entry widgets Vars
-        self.orderUI= Entry(self.master, width=25, borderwidth=2, validate="key")
-        self.columnUI= Entry(self.master,width=25,borderwidth=2, validate="key")
-        self.statusUI= Entry(self.master,width=25,borderwidth=2,validate="key")
+        self.orderUI= Entry(master, width=25, borderwidth=2, validate="key")
+        self.columnUI= Entry(master,width=25,borderwidth=2, validate="key")
+        self.statusUI= Entry(master,width=25,borderwidth=2,validate="key")
 
         #UI widgets pack
         title.pack(pady=20)
-        self.boardName.pack(pady=5)
+        boardName.pack(pady=5)
         titleOrder.pack()
         self.orderUI.pack(pady=12)
         titleColumn.pack()
@@ -45,44 +63,48 @@ class Window():
 
         #Frame widgets format config /end
 
-        #create menubar
-        menubar = Menu(self.master)
-        self.master.config(menu=menubar)
-        file_menu=Menu(menubar,tearoff=False)
-        profile_menu=Menu(menubar,tearoff=False)
+        master.mainloop()
 
 
-        #add menu item#
-        menubar.add_cascade(
-            label="Profile",
-            menu=profile_menu,
-            underline=0
-        )
-
-        #add menu item
-        menubar.add_cascade(
-        label="Menu",
-        menu=file_menu,
-        underline=0
-    )
-
-        #sub menu items
-        file_menu.add_command(label='Monday.com')
-        file_menu.add_command(label='Create New Board')
-        file_menu.add_command(label='Change Board')
-        file_menu.add_command(label='Refresh')
-        file_menu.add_command(label='Close')
-        self.master.mainloop()
-
-
-
-
-
-
-
+    #Sub Menu items
+    def submenu(self):
+        global getApi
+        global getBoard
+        windowSub=Toplevel(self.master)
+        windowSub.geometry('300x300')
+        windowSub.resizable(False,False)
+        windowSub.iconbitmap('img/cloud.ico')
+        windowSub.title("MSUS Configure")
+        #set default value for board config
+        defaultBoardValue=StringVar(windowSub)
+        #default config api
+        defaultApiValue=StringVar(windowSub)
+        apiLabel = Label(windowSub, text="API Key",fg='#0f5b9e',font='android 10 bold')
+        boardLabel = Label(windowSub, text="Board Number",fg='#0f5b9e',font='android 10 bold')
+        enterButton= Button(windowSub, text="Update")
+        apiText= Entry(windowSub, width=25, borderwidth=2, textvariable=defaultApiValue,show="*")
+        boardText= Entry(windowSub, width=25, borderwidth=2, textvariable=defaultBoardValue)
+        apiLabel.pack(pady=15)
+        apiText.pack(pady=10)
+        boardLabel.pack(pady=15)
+        boardText.pack(pady=10)
+        enterButton.pack(pady=10)
+        windowSub.grab_set()
+        lbl=Label(windowSub,text="")
+        lbl.pack()
+        getApi=apiText
+        getBoard=boardText
+        windowSub.mainloop()
 
 
 
-a= Tk()
-Start=Window
-Start.__init__(a)
+
+
+
+
+
+
+
+root= Tk()
+Start=Window(root)
+Start.__init__(Start,a)
