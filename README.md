@@ -11,4 +11,6 @@
 - Monday.com live status updates
 - Board item creation 
 
-
+## License & Copyright 
+© Deontra D Knight
+Licensed under the [MIT License](LICENSE).
